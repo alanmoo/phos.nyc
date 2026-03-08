@@ -2,8 +2,6 @@ backend:
   name: github
   repo: alanmoo/phos.nyc
   branch: main
-  auth_type: pkce
-  app_id: Iv23liazNNHrBBFI3SX0
 
 # Publish mode: editorial_workflow enables draft/review/publish stages
 publish_mode: editorial_workflow
