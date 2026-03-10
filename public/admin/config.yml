@@ -2,8 +2,7 @@ backend:
   name: github
   repo: alanmoo/phos.nyc
   branch: main
-  base_url: https://phos-nyc.vercel.app
-  auth_endpoint: api/begin
+  base_url: https://phos-cms-auth.falling-dew-aaee.workers.dev
 
 # Publish mode: editorial_workflow enables draft/review/publish stages
 publish_mode: editorial_workflow
