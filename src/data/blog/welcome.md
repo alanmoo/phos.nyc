@@ -1,7 +1,10 @@
 ---
 title: Welcome to phos.nyc
-date: 2026-03-07
+pubDatetime: 2026-03-07T00:00:00Z
 description: Our first post
+draft: false
+tags:
+  - general
 ---
 
 Welcome to phos.nyc! This site is built with [Astro](https://astro.build) and content is managed via [SveltiaCMS](https://sveltiacms.app/en/).
