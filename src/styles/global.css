@@ -1,30 +1,30 @@
 @import "tailwindcss";
 @import "./typography.css";
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@font-face {
+  font-family: 'Orange Juice';
+  src: url('/fonts/orange-juice-2.0.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
-:root,
-html[data-theme="light"] {
+:root {
   --background: #fdfdfd;
   --foreground: #282728;
-  --accent: #006cac;
+  --accent: #D4850A;
+  --accent-bg: #FFDE00;
   --muted: #e6e6e6;
   --border: #ece9e9;
 }
 
-html[data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --muted: #343f60;
-  --border: #ab4b08;
-}
-
 @theme inline {
-  --font-app: ui-monospace, monospace;
+  --font-app: system-ui, -apple-system, sans-serif;
+  --font-heading: 'DM Sans', system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
+  --color-accent-bg: var(--accent-bg);
   --color-muted: var(--muted);
   --color-border: var(--border);
 }
@@ -36,7 +36,8 @@ html[data-theme="dark"] {
     scrollbar-color: var(--color-muted) transparent;
   }
   html {
-    @apply overflow-y-scroll scroll-smooth;
+    @apply overflow-y-scroll scroll-smooth bg-background;
+    overflow-x: hidden;
   }
   body {
     @apply flex min-h-svh flex-col bg-background font-app text-foreground selection:bg-accent/75 selection:text-background;
@@ -49,10 +50,13 @@ html[data-theme="dark"] {
   [role="button"]:not(:disabled) {
     cursor: pointer;
   }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
 }
 
 @utility max-w-app {
-  @apply max-w-3xl;
+  @apply max-w-6xl;
 }
 
 @utility app-layout {
@@ -61,6 +65,21 @@ html[data-theme="dark"] {
 
 .active-nav {
   @apply underline decoration-wavy decoration-2 underline-offset-8;
+}
+
+.repeating-banner {
+  width: 100%;
+  height: 70px;
+  background-image: url('/images/repeating-header.jpg');
+  background-repeat: repeat-x;
+  background-size: auto 70px;
+}
+
+@media (min-width: 640px) {
+  .repeating-banner {
+    height: 110px;
+    background-size: auto 110px;
+  }
 }
 
 /* Source: https://piccalil.li/blog/a-more-modern-css-reset/ */
