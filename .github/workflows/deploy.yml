@@ -1,0 +1,12 @@
+on:
+  push:
+    branches: [main]
+  repository_dispatch:
+    types: [sveltia-cms-publish]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel Deploy Hook
+        run: curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK }}
