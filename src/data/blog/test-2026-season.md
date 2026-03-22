@@ -7,7 +7,7 @@ tags:
   - general
   - open streets
 featured: false
-draft: true
+draft: false
 ---
 
 We plan to operate this season similar to last: **every Saturday**, May through September, noon to 10pm.
