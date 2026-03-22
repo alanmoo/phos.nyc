@@ -1,5 +1,5 @@
 ---
-title: test -- 2026 season --
+title: 2026 season
 pubDatetime: 2026-03-22T14:41:00
 description: test
 author: ''
