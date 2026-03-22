@@ -7,91 +7,90 @@ import Socials from "@/components/Socials.astro";
 import LinkButton from "@/components/LinkButton.astro";
 import Card from "@/components/Card.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
-import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import IconInstagram from "@/assets/icons/IconInstagram.svg";
+import IconBluesky from "@/assets/icons/IconBluesky.svg";
 import { SITE } from "@/config";
 import { SOCIALS } from "@/constants";
 
 const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+
+const photos = [
+  "/images/vanderbilt-photos/1.jpg",
+  "/images/vanderbilt-photos/2.jpg",
+  "/images/vanderbilt-photos/3.jpg",
+  "/images/vanderbilt-photos/4.jpg",
+  "/images/vanderbilt-photos/5.jpg",
+];
 ---
 
 <Layout>
   <Header />
-  <main id="main-content" data-layout="index" class="app-layout">
-    <section id="hero" class:list={["pt-8 pb-6", "border-b border-border"]}>
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
-      </h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="inline-block"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <IconRss
-          width={20}
-          height={20}
-          class="scale-125 stroke-accent stroke-3 rtl:-rotate-90"
-        />
-        <span class="sr-only">RSS Feed</span>
-      </a>
-
-      <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
-      </p>
-      <p class="mt-2">
-        Read the blog posts or check
-        <LinkButton
-          class="underline decoration-dashed underline-offset-4 hover:text-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          README
-        </LinkButton> for more info.
-      </p>
-      {
-        // only display if at least one social link is enabled
-        SOCIALS.length > 0 && (
-          <div class="mt-4 flex max-sm:flex-col sm:items-center">
-            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
-    </section>
-
-    {
-      featuredPosts.length > 0 && (
-        <section
-          id="featured"
-          class:list={[
-            "pt-12 pb-6",
-            { "border-b border-border": recentPosts.length > 0 },
-          ]}
-        >
-          <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
-          <ul>
-            {featuredPosts.map(data => (
-              <Card variant="h3" {...data} />
+  <section id="hero" class="w-full bg-accent-bg py-8 sm:py-12 text-foreground">
+    <div class="app-layout flex flex-col gap-8 sm:flex-row sm:items-center sm:gap-12">
+        <div class="sm:w-1/2">
+          <h1 class="text-3xl font-bold sm:text-5xl leading-tight">
+            Vanderbilt Open Streets
+          </h1>
+          <p class="mt-4 text-lg font-medium">
+            Every Saturday from May through September, noon to 10 pm
+          </p>
+          <p class="mt-2 text-lg font-medium">
+            Vanderbilt Ave between Atlantic Ave and Park Place, Brooklyn
+          </p>
+          <p class="mt-6">
+            Follow us on <a href="https://www.instagram.com/prospectheightsopenstreets" target="_blank" rel="noopener noreferrer" class="underline font-semibold"><IconInstagram class="inline w-4 h-4 align-middle -mt-0.5" /> Instagram</a> and <a href="https://bsky.app/profile/prospectheightsopenstreets.org" target="_blank" rel="noopener noreferrer" class="underline font-semibold"><IconBluesky class="inline w-4 h-4 align-middle -mt-0.5" /> Bluesky</a>!
+          </p>
+        </div>
+        <div class="sm:w-1/2">
+          <div class="carousel relative overflow-hidden rounded-lg aspect-[4/3]">
+            {photos.map((src, i) => (
+              <img
+                src={src}
+                alt={`Vanderbilt Open Streets photo ${i + 1}`}
+                class:list={[
+                  "carousel-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700",
+                  i === 0 ? "opacity-100" : "opacity-0",
+                ]}
+              />
             ))}
-          </ul>
-        </section>
-      )
-    }
-
+            <button
+              class="carousel-prev absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full w-9 h-9 flex items-center justify-center text-lg"
+              aria-label="Previous photo"
+            >
+              &lsaquo;
+            </button>
+            <button
+              class="carousel-next absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full w-9 h-9 flex items-center justify-center text-lg"
+              aria-label="Next photo"
+            >
+              &rsaquo;
+            </button>
+            <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+              {photos.map((_, i) => (
+                <button
+                  class:list={[
+                    "carousel-dot w-2 h-2 rounded-full transition-colors",
+                    i === 0 ? "bg-white" : "bg-white/50",
+                  ]}
+                  aria-label={`Go to photo ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <main id="main-content" data-layout="index" class="app-layout">
     {
-      recentPosts.length > 0 && (
+      sortedPosts.length > 0 && (
         <section id="recent-posts" class="pt-12 pb-6">
           <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
           <ul>
-            {recentPosts.map(
+            {sortedPosts.map(
               (data, index) =>
                 index < SITE.postPerIndex && <Card variant="h3" {...data} />
             )}
@@ -111,6 +110,44 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 </Layout>
 
 <script>
+  function initCarousel() {
+    const carousel = document.querySelector(".carousel");
+    if (!carousel) return;
+
+    const slides = carousel.querySelectorAll<HTMLImageElement>(".carousel-slide");
+    const dots = carousel.querySelectorAll<HTMLButtonElement>(".carousel-dot");
+    const prevBtn = carousel.querySelector<HTMLButtonElement>(".carousel-prev");
+    const nextBtn = carousel.querySelector<HTMLButtonElement>(".carousel-next");
+    let current = 0;
+    let timer: ReturnType<typeof setInterval>;
+
+    function goTo(index: number) {
+      slides[current].classList.replace("opacity-100", "opacity-0");
+      dots[current].classList.replace("bg-white", "bg-white/50");
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.replace("opacity-0", "opacity-100");
+      dots[current].classList.replace("bg-white/50", "bg-white");
+    }
+
+    function startAuto() {
+      timer = setInterval(() => goTo(current + 1), 4000);
+    }
+
+    function resetAuto() {
+      clearInterval(timer);
+      startAuto();
+    }
+
+    prevBtn?.addEventListener("click", () => { goTo(current - 1); resetAuto(); });
+    nextBtn?.addEventListener("click", () => { goTo(current + 1); resetAuto(); });
+    dots.forEach((dot, i) => dot.addEventListener("click", () => { goTo(i); resetAuto(); }));
+
+    startAuto();
+  }
+
+  initCarousel();
+  document.addEventListener("astro:after-swap", initCarousel);
+
   document.addEventListener("astro:page-load", () => {
     const indexLayout = (document.querySelector("#main-content") as HTMLElement)
       ?.dataset?.layout;

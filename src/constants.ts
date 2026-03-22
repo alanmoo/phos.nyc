@@ -1,10 +1,10 @@
 import type { Props } from "astro";
 import IconMail from "@/assets/icons/IconMail.svg";
-import IconGitHub from "@/assets/icons/IconGitHub.svg";
-import IconBrandX from "@/assets/icons/IconBrandX.svg";
-import IconLinkedin from "@/assets/icons/IconLinkedin.svg";
+import IconInstagram from "@/assets/icons/IconInstagram.svg";
+import IconBluesky from "@/assets/icons/IconBluesky.svg";
 import IconWhatsapp from "@/assets/icons/IconWhatsapp.svg";
 import IconFacebook from "@/assets/icons/IconFacebook.svg";
+import IconBrandX from "@/assets/icons/IconBrandX.svg";
 import IconTelegram from "@/assets/icons/IconTelegram.svg";
 import IconPinterest from "@/assets/icons/IconPinterest.svg";
 import { SITE } from "@/config";
@@ -18,28 +18,16 @@ interface Social {
 
 export const SOCIALS: Social[] = [
   {
-    name: "GitHub",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: `${SITE.title} on GitHub`,
-    icon: IconGitHub,
+    name: "Instagram",
+    href: "https://www.instagram.com/prospectheightsopenstreets",
+    linkTitle: `${SITE.title} on Instagram`,
+    icon: IconInstagram,
   },
   {
-    name: "X",
-    href: "https://x.com/username",
-    linkTitle: `${SITE.title} on X`,
-    icon: IconBrandX,
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/username/",
-    linkTitle: `${SITE.title} on LinkedIn`,
-    icon: IconLinkedin,
-  },
-  {
-    name: "Mail",
-    href: "mailto:yourmail@gmail.com",
-    linkTitle: `Send an email to ${SITE.title}`,
-    icon: IconMail,
+    name: "Bluesky",
+    href: "https://bsky.app/profile/prospectheightsopenstreets.org",
+    linkTitle: `${SITE.title} on Bluesky`,
+    icon: IconBluesky,
   },
 ] as const;
 
@@ -61,6 +49,12 @@ export const SHARE_LINKS: Social[] = [
     href: "https://x.com/intent/post?url=",
     linkTitle: `Share this post on X`,
     icon: IconBrandX,
+  },
+  {
+    name: "Bluesky",
+    href: "https://bsky.app/intent/compose?text=",
+    linkTitle: `Share this post on Bluesky`,
+    icon: IconBluesky,
   },
   {
     name: "Telegram",
