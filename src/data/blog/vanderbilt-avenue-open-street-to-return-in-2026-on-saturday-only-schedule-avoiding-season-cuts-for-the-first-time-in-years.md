@@ -5,11 +5,11 @@ description: The Vanderbilt Avenue Open Street will return in 2026 and run every
 author: ''
 tags:
   - open streets
-featured: true
+featured: false
 draft: false
 ---
 
-##### _Prospect Heights Open Streets, Inc., a new nonprofit organization, will operate the program going forward_
+_Prospect Heights Open Streets, Inc., a new nonprofit organization, will operate the program going forward_
 
 BROOKLYN — The Vanderbilt Avenue Open Street will return in 2026 and run on a Saturday-only schedule beginning Saturday, May 2, 2026 running through the end of September. Operating hours will be 12pm-10pm. This season schedule represents the first time in four years that the season length and operating hours will not be cut. This comes as a new local partner, Prospect Heights Open Streets, Inc., steps in to take over Open Street operations.
 
