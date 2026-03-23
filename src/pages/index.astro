@@ -12,6 +12,7 @@ import IconInstagram from "@/assets/icons/IconInstagram.svg";
 import IconBluesky from "@/assets/icons/IconBluesky.svg";
 import { SITE } from "@/config";
 import { SOCIALS } from "@/constants";
+import InstagramEmbed from "@/components/InstagramEmbed.astro";
 
 const posts = await getCollection("blog");
 
@@ -85,25 +86,31 @@ const photos = [
     </div>
   </section>
   <main id="main-content" data-layout="index" class="app-layout">
-    {
-      sortedPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
-          <ul>
-            {sortedPosts.map(
-              (data, index) =>
-                index < SITE.postPerIndex && <Card variant="h3" {...data} />
-            )}
-          </ul>
-        </section>
-      )
-    }
-
-    <div class="my-8 text-center">
-      <LinkButton href="/posts/">
-        All Posts
-        <IconArrowRight class="inline-block rtl:-rotate-180" />
-      </LinkButton>
+    <div class="flex flex-col gap-8 pt-12 pb-6 sm:flex-row-reverse">
+      <div class="sm:w-1/2">
+        {
+          sortedPosts.length > 0 && (
+            <div>
+              <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
+              <ul>
+                {sortedPosts.map(
+                  (data, index) =>
+                    index < SITE.postPerIndex && <Card variant="h3" {...data} />
+                )}
+              </ul>
+              <div class="mt-4">
+                <LinkButton href="/posts/">
+                  All Posts
+                  <IconArrowRight class="inline-block rtl:-rotate-180" />
+                </LinkButton>
+              </div>
+            </div>
+          )
+        }
+      </div>
+      <div class="sm:w-1/2 sm:px-8">
+        <InstagramEmbed />
+      </div>
     </div>
   </main>
   <Footer />
