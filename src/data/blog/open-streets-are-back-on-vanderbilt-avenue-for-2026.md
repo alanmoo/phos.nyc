@@ -5,7 +5,7 @@ description: We are counting on your support to ensure the 7th Vanderbilt season
 author: ''
 tags:
   - open streets
-featured: false
+featured: true
 draft: false
 ---
 
