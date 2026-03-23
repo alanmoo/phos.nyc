@@ -1,10 +1,10 @@
 export const SITE = {
-  website: "https://phos-nyc.vercel.app/",
+  website: "http://phos.nyc/",
   author: "Prospect Heights Open Streets, Inc.",
-  profile: "https://phos-nyc.vercel.app/",
+  profile: "https://phos.nyc/",
   desc: "Vanderbilt Open Streets — Every Saturday, May through September, noon to 10 pm",
   title: "Prospect Heights Open Streets",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "images/og-phos.jpg",
   lightAndDarkMode: false,
   postPerIndex: 4,
   postPerPage: 4,
