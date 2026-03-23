@@ -1,0 +1,131 @@
+---
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Layout from "@/layouts/Layout.astro";
+import { SITE } from "@/config";
+
+const articles = [
+  { title: "Bike counts show demand on Vanderbilt Ave. as DOT delays upgrades", url: "https://brooklyneagle.com/articles/2025/10/01/bike-counts-show-demand-on-vanderbilt-ave-as-dot-delays-upgrades/", outlet: "Brooklyn Daily Eagle", date: "October 1, 2025" },
+  { title: "Bike Data Shows Huge Demand on Vanderbilt Ave. As Adams Administration Dithers", url: "https://nyc.streetsblog.org/2025/09/30/bike-data-shows-huge-demand-on-vanderbilt-ave-as-adams-administration-dickers", outlet: "Streetsblog NYC", date: "September 30, 2025" },
+  { title: "Vanderbilt to Last Edition", url: "https://nyc.streetsblog.org/2025/08/07/thursdays-headlines-vanderbilt-to-last-edition", outlet: "Streetsblog NYC", date: "August 7, 2025" },
+  { title: "There's Traffic-Cone Drama on Vanderbilt Avenue", url: "https://www.curbed.com/article/traffic-cone-drama-open-streets-vanderbilt-avenue.html", outlet: "Curbed", date: "May 1, 2025" },
+  { title: "Open Streets Are Shrinking Thanks to 'Lukewarm' City Support: Lander", url: "https://nyc.streetsblog.org/2025/04/27/open-streets-are-shrinking-thanks-to-lukewarm-city-support-lander", outlet: "Streetsblog NYC", date: "April 27, 2025" },
+  { title: "Open Street Program in Jeopardy As Mayor Adams Is Not Funding It", url: "https://nyc.streetsblog.org/2025/04/03/open-street-program-in-jeopardy-as-mayor-adams-is-not-funding-it", outlet: "Streetsblog NYC", date: "April 3, 2025" },
+  { title: "Open Streets Won't Survive Without More Money From the City, Organizers Warn", url: "https://nyc.streetsblog.org/2025/03/14/open-streets-wont-survive-without-more-money-from-the-city-organizers-warn", outlet: "Streetsblog NYC", date: "March 14, 2025" },
+  { title: "Vanderbilt Avenue in Prospect Heights will be open this summer on Saturdays only", url: "https://gothamist.com/news/vanderbilt-avenue-in-prospect-heights-will-be-open-this-summer-on-saturdays-only", outlet: "Gothamist", date: "February 28, 2025" },
+  { title: "Vanderbilt Ave. Open Street Trims Hours For Second Straight Year", url: "https://nyc.streetsblog.org/2025/02/28/vanderbilt-ave-open-street-trims-hours-for-second-straight-year", outlet: "Streetsblog NYC", date: "February 28, 2025" },
+  { title: "Underhill Ave. Residents Approve of Bike Boulevard: Survey", url: "https://nyc.streetsblog.org/2025/02/25/underhill-ave-residents-approve-of-bike-boulevard-survey", outlet: "Streetsblog NYC", date: "February 25, 2025" },
+  { title: "Car-Free Streets are Good For Business, Yet Another Report Shows", url: "https://nyc.streetsblog.org/2024/11/18/car-free-streets-are-good-for-business-yet-another-report-shows", outlet: "Streetsblog NYC", date: "November 18, 2024" },
+  { title: "Mayor Adams's Town Hall on Vanderbilt Open Street Has Been 'Postponed Indefinitely'", url: "https://hellgatenyc.com/mayor-adams-town-hall-postponed/", outlet: "Hell Gate", date: "September 9, 2024" },
+  { title: "Mayor Adams Comes for Vanderbilt Avenue's Open Street", url: "https://hellgatenyc.com/morning-spew-eric-adams-vanderbilt-open-street/", outlet: "Hell Gate", date: "September 9, 2024" },
+  { title: "DOT Begins Slow Process of Lowering Speed Limits on a Small Number of Streets", url: "https://nyc.streetsblog.org/2024/06/27/dot-begins-slow-process-of-lowering-speed-limits-on-a-small-number-of-streets", outlet: "Streetsblog NYC", date: "June 27, 2024" },
+  { title: "What's Happening to Open Streets?", url: "https://www.curbed.com/article/open-streets-financial-problems-park-slope.html", outlet: "Curbed", date: "March 13, 2024" },
+  { title: "Money Problems: Brooklyn's Fifth Ave. Open Street Loses Sponsor, While Vanderbilt Gets Trimmed", url: "https://nyc.streetsblog.org/2024/03/07/money-problems-brooklyns-fifth-ave-open-street-loses-sponsor-while-vanderbilt-gets-trimmed", outlet: "Streetsblog NYC", date: "March 7, 2024" },
+  { title: "DOT to finish Underhill Avenue's bike boulevard after six-month standstill", url: "https://www.brooklynpaper.com/dot-underhill-avenue-bike-boulevard/", outlet: "Brooklyn Paper", date: "February 29, 2024" },
+  { title: "Victory on Underhill Edition", url: "https://nyc.streetsblog.org/2024/02/29/thursdays-headlines-victory-on-underhill-edition", outlet: "Streetsblog NYC", date: "February 29, 2024" },
+  { title: "Underhill Bike Boulevard to move forward after nearly six month delay", url: "https://prospectheightsplaces.com/press-release-underhill-bike-boulevard-to-move-forward-after-nearly-six-month-delay/", outlet: "Press Release", date: "February 28, 2024" },
+  { title: "City resuming work in Brooklyn on controversial Prospect Heights bike lane", url: "https://www.nydailynews.com/2024/02/28/city-resuming-work-in-brooklyn-on-controversial-prospect-heights-bike-lane/", outlet: "Daily News", date: "February 28, 2024" },
+  { title: "Frustrated Residents Finish Mayor Adams's Stalled Underhill Ave. Bike Boulevard", url: "https://nyc.streetsblog.org/2024/02/27/frustrated-residents-finish-mayor-adamss-stalled-underhill-ave-bike-boulevard", outlet: "Streetsblog NYC", date: "February 27, 2024" },
+  { title: "Following Underhill Avenue crash, street safety advocates highlight efficacy of 'bike boulevard' treatment", url: "https://prospectheightsplaces.com/press-release-following-underhill-avenue-crash", outlet: "Press Release", date: "February 26, 2024" },
+  { title: "Underhill Ave. Still In Limbo Two Weeks After Mayor Promised Decision in 'A Day Or So'", url: "https://nyc.streetsblog.org/2024/02/21/underhill-ave-still-in-limbo-two-weeks-after-mayor-promised-decision-in-a-day-or-so", outlet: "Streetsblog NYC", date: "February 21, 2024" },
+  { title: "PHNDC is really ramping up its effort to get Mayor Adams to see that he's just dead wrong", url: "https://nyc.streetsblog.org/2024/02/08/thursdays-headlines-well-always-have-paris-edition", outlet: "Streetsblog NYC", date: "February 8, 2024" },
+  { title: "Adams names vague influence of \u201Cthose outside the community\u201D as reason why street safety projects are being halted", url: "https://prospectheightsplaces.com/press-release-adams-names-vague-influence-of-those-outside-the-community-as-reason-why-street-safety-projects-are-being-halted/", outlet: "Press Release", date: "February 6, 2024" },
+  { title: "Street safety advocates FOIL City Hall, citing lack of transparency around streets projects", url: "https://prospectheightsplaces.com/press-release-street-safety-advocates-foil-city-hall/", outlet: "Press Release", date: "January 31, 2024" },
+  { title: "Prospect Heights Locals Call for Completion of Stalled Underhill Avenue Bike Boulevard", url: "https://www.brownstoner.com/brooklyn-life/prospect-heights-underhill-avenue-bike-boulevard-community-survey/", outlet: "Brownstoner", date: "January 22, 2024" },
+  { title: "Brooklynites to Mayor: Release the Underhill Survey Findings!", url: "https://nyc.streetsblog.org/2024/01/19/brooklynites-to-mayor-release-the-underhill-findings", outlet: "Streetsblog NYC", date: "January 19, 2024" },
+  { title: "Prospect Heights residents call on mayor to finish Underhill Avenue's bike boulevard", url: "https://www.brooklynpaper.com/underhill-avenue-prospect-heights-bike/", outlet: "Brooklyn Paper", date: "January 18, 2024" },
+  { title: "PHNDC demands City Hall release results of Adams' \u201Cdoor-to-door\u201D Underhill Avenue survey", url: "https://prospectheightsplaces.com/press-release-phndc-demands-adams-release-underhill-results/", outlet: "Press Release", date: "January 17, 2024" },
+  { title: "Making Headway on the Perfect New York Street \u2014 Small steps toward safer streets and fewer rats", url: "https://www.curbed.com/2023/12/safer-new-york-street-design-pedestrian-bike-progress.html", outlet: "Curbed", date: "December 12, 2023" },
+  { title: "Vision? Zero\u2014Prospect Heights Seeks Daylighting for a Neighborhood with None", url: "https://nyc.streetsblog.org/2023/11/14/vision-zero-prospect-heights-seeks-daylighting-for-a-neighborhood-with-none", outlet: "Streetsblog NYC", date: "November 14, 2023" },
+  { title: "Brooklyn Neighborhood Daylighting Assessment Reveals Significant Street Safety Shortfalls", url: "https://prospectheightsplaces.com/press-release-brooklyn-neighborhood-daylighting-assessment-reveals-significant-street-safety-shortfalls/", outlet: "Press Release", date: "November 13, 2023" },
+  { title: "Officials call for focus on street safety after two-car hit-and-run claims life of senior woman in Brooklyn", url: "https://www.amny.com/news/senior-woman-killed-brooklyn-hit-and-run/", outlet: "AMNY", date: "November 3, 2023" },
+  { title: "PHNDC statement in response to death of Yvonne Sandiford", url: "https://prospectheightsplaces.com/press-release-phndc-statement-in-response-to-death-of-yvonne-sandiford/", outlet: "Press Release", date: "November 3, 2023" },
+  { title: "City Hall Effort To Upend A Bike Boulevard Gets Underway With Online Survey", url: "https://nyc.streetsblog.org/2023/11/02/city-hall-effort-to-upend-a-bike-boulevard-gets-underway-with-online-survey", outlet: "Streetsblog NYC", date: "November 2, 2023" },
+  { title: "Outraged Parents Call for Safe Streets After Death of Kamari Hughes", url: "https://nyc.streetsblog.org/2023/10/29/outraged-parents-call-for-safe-streets-after-death-of-kamari-hughes", outlet: "Streetsblog NYC", date: "October 29, 2023" },
+  { title: "Adams' demand for more community input on Prospect Heights bike path leaves residents seething", url: "https://www.nydailynews.com/2023/10/27/adams-demand-community-input-prospect-heights-underhill-avenue-brooklyn-bike-path-residents-angry/", outlet: "Daily News", date: "October 27, 2023" },
+  { title: "The Deadly School-Zone Crossing", url: "https://www.curbed.com/2023/10/the-deadly-school-zone-crossing.html", outlet: "Curbed", date: "October 27, 2023" },
+  { title: "PHNDC statement in response to a 7-year-old child being struck and killed by a truck driver this morning", url: "https://prospectheightsplaces.com/press-release-phndc-statement-in-response-to-a-7-year-old-child-being-struck-and-killed-by-a-truck-driver-this-morning/", outlet: "Press Release", date: "October 26, 2023" },
+  { title: "The bike bus world came together in Brooklyn today", url: "https://bikeportland.org/2023/10/19/the-bike-bus-world-came-together-in-brooklyn-today-380673", outlet: "BikePortland", date: "October 21, 2023" },
+  { title: "Prospect Heights Group to Mayor Adams: Finish the Underhill Ave. Bike Boulevard!", url: "https://nyc.streetsblog.org/2023/10/19/prospect-heights-group-to-mayor-adams-finish-the-underhill-ave-bike-boulevard", outlet: "Streetsblog NYC", date: "October 19, 2023" },
+  { title: "Amid continued City Hall interference in DOT projects, PHNDC urges Adams to \u201Cfinish the job\u201D in Prospect Heights", url: "https://prospectheightsplaces.com/finish-the-job-in-prospect-heights/", outlet: "Press Release", date: "October 18, 2023" },
+  { title: "Advocates worry which street safety project Mayor Adams will abandon next", url: "https://gothamist.com/news/advocates-worry-which-street-safety-project-mayor-adams-will-abandon-next", outlet: "Gothamist", date: "October 18, 2023" },
+  { title: "Mayor Adams Blasts Mayor Adams's DOT Community Outreach Efforts", url: "https://nyc.streetsblog.org/2023/10/17/mayor-adams-blasts-mayor-adamss-dot-community-outreach-efforts", outlet: "Streetsblog NYC", date: "October 17, 2023" },
+  { title: "Prospect Heights residents lead in supporting local public space initiatives", url: "https://prospectheightsplaces.com/press-release-prospect-heights-residents-lead-in-supporting-local-public-space-initiatives", outlet: "Press Release", date: "October 11, 2023" },
+  { title: "This Street Saved Brooklyn Business, Now They Want To Remove It?!", url: "https://www.youtube.com/watch?v=7I-1rSrFttA", outlet: "Tim Chin Walks", date: "October 6, 2023" },
+  { title: "Mayor Adams, Don't Turn Your Back On BK's Bike Boulevard", url: "https://patch.com/new-york/brooklyn/mayor-adams-dont-turn-your-back-bks-bike-boulevard-advocates", outlet: "Patch", date: "September 27, 2023" },
+  { title: "Another Flip-Flop\u2014City Hall Allegedly Pauses Almost-Done Underhill Ave. Bike Boulevard", url: "https://nyc.streetsblog.org/2023/09/26/another-flip-flop-city-hall-allegedly-pauses-almost-done-underhill-ave-bike-boulevard", outlet: "Streetsblog NYC", date: "September 26, 2023" },
+  { title: "Petition picks up steam to create public space in Prospect Heights", url: "https://brooklyn.news12.com/petition-picks-up-steam-to-create-public-space-in-prospect-heights", outlet: "News 12", date: "September 25, 2023" },
+  { title: "PHNDC launches petition to keep Prospect Heights streets for people", url: "https://prospectheightsplaces.com/phndc-launches-petition-to-keep-prospect-heights-streets-for-people/", outlet: "Press Release", date: "September 25, 2023" },
+  { title: "'What is Up With All These Flip-Flops, Mayor?'", url: "https://nyc.streetsblog.org/2023/09/25/mondays-headlines-what-is-up-with-all-these-flip-flops-mayor-edition", outlet: "Streetsblog NYC", date: "September 25, 2023" },
+  { title: "City Backs Away from Most Aggressive Plan on the Proposed Underhill 'Bike Boulevard'", url: "https://nyc.streetsblog.org/2023/06/01/city-backs-away-from-most-aggressive-plan-on-the-proposed-underhill-bike-boulevard", outlet: "Streetsblog NYC", date: "June 1, 2023" },
+  { title: "City Adds $30M for Managing Open Streets, Public Space in Needy Nabes", url: "https://nyc.streetsblog.org/2023/05/16/hoopla-city-adds-30m-for-managing-open-streets-public-space-in-needy-nabes/", outlet: "Streetsblog NYC", date: "May 16, 2023" },
+  { title: "NYC's Vanderbilt Avenue: The Nexus of Open Dining, Open Streets & Safe Bicycling", url: "https://www.youtube.com/watch?v=qmNuHpyw96o", outlet: "Streetfilms", date: "May 11, 2023" },
+  { title: "Future Streets Rally\u2014See Vanderbilt Avenue and why Open Streets Need to be Fully Funded", url: "https://www.youtube.com/watch?v=Mky_Hy1g38U", outlet: "Streetfilms", date: "May 8, 2023" },
+  { title: "City Should Invest In Safe, 'Vibrant' Open Streets: Advocates", url: "https://patch.com/new-york/prospectheights/brooklyn-needs-safer-more-vibrant-streets-advocates-electeds", outlet: "Patch", date: "May 8, 2023" },
+  { title: "Elected officials, community organizations and civic groups call for City roadmap to equitable, sustainable and permanent Open Streets", url: "https://prospectheightsplaces.com/press-release-elected-officials-community-organizations-and-civic-groups-call-for-city-roadmap-to-equitable-sustainable-and-permanent-open-streets/", outlet: "Press Release", date: "May 6, 2023" },
+  { title: "Proposed DOT Rule Changes Would Raise Burdens and Even Penalize Open Street Operators: Activists", url: "https://nyc.streetsblog.org/2023/04/26/proposed-dot-rule-changes-would-penalize-open-street-operators/", outlet: "Streetsblog NYC", date: "April 26, 2023" },
+  { title: "Vanderbilt Open Streets Announces Opening Weekend & Earth Day Celebration", url: "https://prospectheightsplaces.com/press-release-vanderbilt-open-streets-announces-opening-weekend-earth-day-celebration/", outlet: "Press Release", date: "April 23, 2023" },
+  { title: "Open streets initiative returns to Prospect Heights for all to enjoy the spring weather", url: "https://brooklyn.news12.com/open-streets-initiative-returns-to-prospect-heights-for-all-to-enjoy-the-spring-weather", outlet: "News 12", date: "April 21, 2023" },
+  { title: "Earth Day\u201436 fun things to do in Brooklyn", url: "https://brooklyneagle.com/articles/2023/04/21/earth-day-22-fun-things-to-do-in-brooklyn/", outlet: "Brooklyn Daily Eagle", date: "April 21, 2023" },
+  { title: "Vanderbilt Ave Open Street kicks off season of music, dancing, skating and more on April 21", url: "https://www.brooklynpaper.com/vanderbilt-avenue-open-street-kicks-off/", outlet: "Brooklyn Paper", date: "April 19, 2023" },
+  { title: "100+ NYC Streets Go Car-Free for Earth Day: What to Know", url: "https://www.nbcnewyork.com/entertainment/the-scene/nyc-car-free-earth-day-see-open-streets-list-free-activities-and-more/4256208/", outlet: "NBC New York", date: "April 19, 2023" },
+  { title: "Vanderbilt Ave Could Be Model for Trash Containerization (Report)", url: "https://nyc.streetsblog.org/2023/03/28/vanderbilt-avenue-open-street-could-be-model-for-trash-containerization-report/", outlet: "Streetsblog NYC", date: "March 29, 2023" },
+  { title: "New pedestrian plaza opens on Brooklyn's Underhill Ave Open Street", url: "https://www.amny.com/new-york/brooklyn/new-pedestrian-plaza-opens-on-brooklyns-underhill-ave-open-street/", outlet: "AMNY", date: "January 22, 2023" },
+  { title: "New pedestrian plaza opens in Prospect Heights, Brooklyn", url: "https://www.cbsnews.com/newyork/news/underhill-plaza-prospect-heights-brooklyn/", outlet: "CBS New York", date: "January 22, 2023" },
+  { title: "Pedestrian plaza created by Open Streets program opens in Prospect Heights", url: "https://abc7ny.com/pedestrian-plaza-prospect-heights-brooklyn-traffic-open-streets-program/12725717/", outlet: "ABC7 New York", date: "January 22, 2023" },
+  { title: "Hugely popular pedestrianized program is seeking a part-time program manager", url: "https://patch.com/new-york/prospectheights/vanderbilt-open-streets-has-open-position", outlet: "Patch", date: "December 14, 2022" },
+  { title: "Open Streets have been good for Brooklyn business, study shows", url: "https://www.bkmag.com/2022/10/26/open-streets/", outlet: "Brooklyn Magazine", date: "October 26, 2022" },
+  { title: "On Car-Free Streets, Many New York Restaurants Thrived", url: "https://www.nytimes.com/2022/10/25/nyregion/ny-open-streets-restaurants.html", outlet: "NY Times", date: "October 25, 2022" },
+  { title: "The party continues: Vanderbilt Avenue open street staying busy this September", url: "https://www.brooklynpaper.com/vanderbilt-avenue-open-street-staying-busy-this-september/", outlet: "Brooklyn Paper", date: "September 6, 2022" },
+  { title: "How New York City Lost 63 Miles of Pedestrian-Friendly 'Open Streets'", url: "https://www.nytimes.com/2022/08/11/nyregion/open-streets-nyc.html", outlet: "NY Times", date: "August 11, 2022" },
+  { title: "The ultimate guide to New York City's five boroughs", url: "https://www.telegraph.co.uk/travel/destinations/north-america/united-states/new-york/ultimate-guide-new-york-citys-five-boroughs/", outlet: "The Telegraph", date: "August 7, 2022" },
+  { title: "City Proposes Bike and Pedestrian Upgrades to Two Prospect Heights Avenues", url: "https://nyc.streetsblog.org/2022/07/05/city-proposes-bike-and-pedestrian-upgrades-to-two-prospect-heights-avenues/", outlet: "Streetsblog NYC", date: "July 5, 2022" },
+  { title: "Dance Parties, Free Family Fun: Vanderbilt Open Street's July Line-Up", url: "https://patch.com/new-york/prospectheights/dance-parties-free-family-fun-vanderbilt-open-streets-july-line", outlet: "Patch", date: "July 5, 2022" },
+  { title: "Salsa Salsa Returns to Vanderbilt Open Streets for July", url: "https://bkreader.com/2022/07/01/salsa-salsa-returns-to-vanderbilt-open-streets-for-july/", outlet: "BK Reader", date: "July 1, 2022" },
+  { title: "Pride, Juneteenth Parties And More Coming To Vanderbilt Open Street", url: "https://patch.com/new-york/prospectheights/pride-juneteenth-parties-more-coming-vanderbilt-open-street", outlet: "Patch", date: "June 13, 2022" },
+  { title: "BP Reynoso wants permanent public plaza on Vanderbilt Avenue open street", url: "https://www.brooklynpaper.com/reynoso-permanent-plaza-vanderbilt-avenue/", outlet: "Brooklyn Paper", date: "June 9, 2022" },
+  { title: "In Convo: Open Streets, Vanderbilt Ave", url: "https://sklar.substack.com/p/in-convo-open-streets-vanderbilt", outlet: "Exasperated Infrastructures", date: "June 7, 2022" },
+  { title: "The top 10 Open Streets in NYC to hit this spring and summer", url: "https://www.timeout.com/newyork/news/the-top-10-open-streets-in-nyc-to-hit-this-spring-and-summer-042222", outlet: "Time Out", date: "April 22, 2022" },
+  { title: "Open Streets Returns to Vanderbilt Avenue This Spring", url: "https://prospectheightsplaces.com/press-release-open-streets-returns-to-vanderbilt-avenue-this-spring/", outlet: "Press Release", date: "March 16, 2022" },
+  { title: "Vanderbilt Ave Popular Open Street to Return April 1", url: "https://bkreader.com/2022/03/16/vanderbilt-ave-open-street-to-return-april-1/", outlet: "BK Reader", date: "March 16, 2022" },
+  { title: "Vanderbilt Ave Open Street To Return In April", url: "https://patch.com/new-york/prospectheights/prospect-heights-vanderbilt-ave-open-street-return-april", outlet: "Patch", date: "March 15, 2022" },
+  { title: "Open Streets program gives Prospect Heights a boost heading into fall", url: "https://bronx.news12.com/open-streets-program-gives-prospect-heights-a-boost-heading-into-fall", outlet: "News 12", date: "September 18, 2021" },
+  { title: "\u201CEnvision Vanderbilt\u201D builds on community efforts to pioneer a future for Vanderbilt Avenue", url: "https://prospectheightsplaces.com/press-release-envision-vanderbilt-builds-on-community-efforts-to-pioneer-a-future-for-vanderbilt-avenue/", outlet: "Press Release", date: "September 8, 2021" },
+  { title: "Street mural adds \u201Csplash of color\u201D to Vanderbilt", url: "https://www.brooklynpaper.com/vanderbilt-avenue-mural/", outlet: "Brooklyn Paper", date: "August 2, 2021" },
+  { title: "Mayor announces 'Open Boulevards'", url: "https://nyc.streetsblog.org/2021/05/12/streets-week-now-mayor-creates-open-boulevards-to-bolster-outdoor-dining-strolling/", outlet: "Streetsblog NYC", date: "May 12, 2021" },
+  { title: "CM Carlina Rivera discusses Open Streets bill on Vanderbilt", url: "https://nyc.streetsblog.org/2021/05/01/carlina-rivera-heres-why-my-open-streets-bill-will-make-nyc-a-model-for-the-nation/", outlet: "Streetsblog NYC", date: "May 1, 2021" },
+  { title: "Open Streets Coalition calls on City for support", url: "https://www.curbed.com/2021/04/nyc-open-streets-volunteers-city-funding.html", outlet: "Curbed", date: "April 7, 2021" },
+  { title: "New Layout, Better Signage & More Programming for Prospect Heights Open Streets", url: "https://bklyner.com/neighbors-and-city-officials-plan-new-layout-better-signage-and-more-programming-on-prospect-heights-open-streets/", outlet: "Bklyner", date: "March 30, 2021" },
+  { title: "Vanderbilt \u201Ca prime example of what Open Streets can look like at its best\u201D", url: "https://www.grubstreet.com/2021/03/how-does-nyc-open-streets-work.html", outlet: "Grub Street", date: "March 30, 2021" },
+  { title: "More City support needed for Open Streets", url: "https://nyc.streetsblog.org/2021/03/30/analysis-the-massive-holes-in-de-blasios-open-streets-announcement/", outlet: "Streetsblog NYC", date: "March 30, 2021" },
+];
+---
+
+<Layout title={`In the News | ${SITE.title}`}>
+  <Header />
+  <main id="main-content" class="app-layout">
+    <section class="mt-10 mb-28 max-w-app">
+      <h1 class="text-2xl tracking-wider sm:text-3xl font-heading font-bold">In the News</h1>
+
+      <ul class="mt-8 space-y-6">
+        {articles.map(article => (
+          <li class="border-b border-border pb-6">
+            <a
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-xl text-accent underline font-semibold hover:opacity-80"
+            >
+              {article.title}
+              <svg xmlns="http://www.w3.org/2000/svg" class="inline w-4 h-4 ml-1 -mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+            </a>
+            <div class="mt-1 text-foreground/70">
+              {article.outlet}{article.outlet && " \u00B7 "}{article.date}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </main>
+  <Footer />
+</Layout>
