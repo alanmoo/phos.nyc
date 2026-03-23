@@ -28,7 +28,16 @@
     }
 
     a {
-      @apply wrap-break-word text-foreground decoration-dashed underline-offset-4 hover:text-accent focus-visible:no-underline;
+      @apply wrap-break-word underline-offset-4 font-semibold focus-visible:no-underline;
+      color: var(--color-accent) !important;
+      text-decoration-line: underline !important;
+      text-decoration-color: var(--color-accent) !important;
+    }
+    a:hover {
+      opacity: 0.8;
+    }
+    a strong {
+      color: inherit !important;
     }
 
     ul {
