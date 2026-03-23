@@ -15,7 +15,7 @@ BROOKLYN — The Vanderbilt Avenue Open Street will return in 2026 and run on a 
 
 “The Vanderbilt Avenue Open Street is a beloved staple of Prospect Heights, and we’re thrilled to be able to bring the program back for the community to enjoy with zero reduction in operating hours,” **said Saskia Haegens, a board member of Prospect Heights Open Streets, Inc**. “With a new local partner and supportive Mayor in City Hall, we’re confident that the Open Street will continue to thrive and offer new benefits to the community and local businesses every year,” **added Haegens.**
 
-[Prospect Heights Open Streets, Inc.](https://www.prospectheightsopenstreets.org/) (PHOS) is a newly formed 501(c)3 nonprofit organization created by a core group of experienced Open Streets organizers. The new organization offers a streamlined structure and newfound versatility which organizers expect will greatly reduce the administrative lift of running the program. PHOS will spearhead new business and community partnerships that bring exciting new activations to the Open Street this year.
+Prospect Heights Open Streets, Inc. (PHOS) is a newly formed 501(c)3 nonprofit organization created by a core group of experienced Open Streets organizers. The new organization offers a streamlined structure and newfound versatility which organizers expect will greatly reduce the administrative lift of running the program. PHOS will spearhead new business and community partnerships that bring exciting new activations to the Open Street this year.
 
 **Open Streets are popular and greatly beneficial**
 
