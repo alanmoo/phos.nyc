@@ -1,16 +1,15 @@
 ---
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import Breadcrumb from "@/components/Breadcrumb.astro";
+
 import Layout from "@/layouts/Layout.astro";
 import { SITE } from "@/config";
 ---
 
 <Layout title={`About | ${SITE.title}`}>
   <Header />
-  <Breadcrumb />
   <main id="main-content" class="app-layout">
-    <section id="about" class="app-prose mb-8 max-w-app prose-img:border-0">
+    <section id="about" class="app-prose mt-10 mb-8 max-w-app prose-img:border-0">
       <h1 class="text-2xl tracking-wider sm:text-3xl">About</h1>
 
       <div class="flex flex-col-reverse gap-8 sm:flex-row sm:items-center not-prose">
