@@ -4,7 +4,7 @@ export const SITE = {
   profile: "https://phos.nyc/",
   desc: "Vanderbilt Open Streets — Every Saturday, May through September, noon to 10 pm",
   title: "Prospect Heights Open Streets",
-  ogImage: "images/og-phos.jpg",
+  ogImage: "images/og-phos.png",
   lightAndDarkMode: false,
   postPerIndex: 4,
   postPerPage: 4,
