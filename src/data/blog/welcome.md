@@ -8,4 +8,4 @@ tags:
 draft: true
 ---
 
-Welcome to phos.nyc! This site is built with [Astro](https://astro.build) and content is managed via [SveltiaCMS](https://sveltiacms.app/en/).
+Welcome to phos.nyc! This site is built with [Astro](https://astro.build) and content is managed via [SveltiaCMS](https://sveltiacms.app/en/).  Test
