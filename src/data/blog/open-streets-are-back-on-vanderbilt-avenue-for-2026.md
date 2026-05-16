@@ -11,7 +11,7 @@ draft: false
 
 Greetings Open Streets supporters!
 
-**We are thrilled to announce that the Vanderbilt Avenue Open Street is returning in 2026!** We are gearing up to again run on a Saturday-only schedule from May through September. _This schedule would mark the first season in four years where there would be no reduction in operating hours_ — something we are beyond excited about! We are counting on your support to ensure the 7th Vanderbilt season is a success and we can continue to offer new and exciting benefits every year. Will you contribute to help make this a reality?
+**We are thrilled to announce that the Vanderbilt Avenue Open Street is returning in 2026!** We are gearing up to again run on a Saturday-only schedule from May through September. _This schedule would mark the first season in four years where there would be no reduction in operating hours_ — something we are beyond excited about! We are counting on your support to ensure the 7th Vanderbilt season is a success and we can continue to offer new and exciting benefits every year. Will you contribute to help make this a reality? 
 
 [**Donate to support Open Streets!**](https://givebutter.com/c/vanderbilt-avenue-open-street-is-back-for-2026-xpedp3)
 
