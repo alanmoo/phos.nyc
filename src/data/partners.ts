@@ -40,6 +40,6 @@ export const sponsors: Partner[] = [
   { name: "Rikud Studio", logo: "/images/sponsors/rikud.webp", url: "https://www.rikudstudio.com/" },
   { name: "Studio Pilates", logo: "/images/sponsors/studio-pilates.webp", url: "https://www.studiopilates.com/studios/prospect-heights/" },
   { name: "The Analog Stationer", logo: "/images/sponsors/the-analog-stationer.webp", url: "https://theanalogstationer.com/" },
-  { name: "Vanderbilt Summit", logo: "/images/sponsors/vanderbilt-summit.webp" },
+  { name: "Vanderbilt Summit", logo: "/images/sponsors/vanderbilt-summit.webp", url: "https://www.vanderbiltsummit.com/" },
   { name: "Winky Lewis Photography", logo: "/images/sponsors/winky-lewis-photo.webp", url: "https://www.winkylewisphoto.com/" },
 ];
