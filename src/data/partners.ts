@@ -35,6 +35,7 @@ export const sponsors: Partner[] = [
   { name: "Brand Service", logo: "/images/sponsors/brand-service.webp", url: "https://brandservice.co/" },
   { name: "British Swim School", logo: "/images/sponsors/british-swim-school.webp", url: "https://britishswimschool.com/brooklyn-queens/" },
   { name: "Compass", logo: "/images/sponsors/compass.webp", url: "https://www.compass.com/agents/ryanandryan/" },
+  { name: "Gotham Sitty", logo: "/images/sponsors/gothamsitty.webp", url: "https://gothamsitty.com/" },
   { name: "Maimonides Health", logo: "/images/sponsors/maimonides-health.webp", url: "https://maimo.org/" },
   { name: "Outdoor Dining Group", logo: "/images/sponsors/outdoor-dining-group.webp", url: "https://outdoordininggroup.com/" },
   { name: "Rikud Studio", logo: "/images/sponsors/rikud.webp", url: "https://www.rikudstudio.com/" },
